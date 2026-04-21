@@ -10,9 +10,9 @@ const Footer = () => {
           <div>
             <Link to="/" className="footer-logo">
               <span className="text-2xl font-black tracking-tighter text-white">Project</span>
-              <span className="text-2xl font-light text-globe-cyan navbar-logo-cyan">Telecom</span>
+              <span className="text-2xl font-light text-cyan navbar-logo-cyan">Telecom</span>
             </Link>
-            <p className="footer-text">
+            <p className="footer-description">
               Empowering every Filipino with connectivity that matters. Leading the digital transformation of the Philippines.
             </p>
             <div className="footer-socials">
@@ -55,11 +55,11 @@ const Footer = () => {
             <h3 className="footer-heading">Contact Us</h3>
             <ul className="footer-list">
               <li className="footer-contact-item">
-                <Phone size={16} className="text-globe-cyan" />
+                <Phone size={16} className="text-cyan" />
                 <span>(02) 7730-1000</span>
               </li>
               <li className="footer-contact-item">
-                <Mail size={16} className="text-globe-cyan" />
+                <Mail size={16} className="text-cyan" />
                 <span>support@project.com.ph</span>
               </li>
               <li className="footer-contact-item">

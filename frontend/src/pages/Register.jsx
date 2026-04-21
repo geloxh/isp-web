@@ -30,11 +30,11 @@ const Register = () => {
       <div className="auth-header">
         <div className="text-center">
           <Link to="/" className="inline-flex items-center mb-8">
-            <span className="text-3xl font-black tracking-tighter text-globe-blue">Project</span>
-            <span className="text-3xl font-light text-globe-cyan navbar-logo-cyan">Telecom</span>
+            <span className="text-3xl font-black tracking-tighter text-blue">Project</span>
+            <span className="text-3xl font-light text-cyan navbar-logo-cyan">Telecom</span>
           </Link>
-          <h2 className="text-3xl font-black text-globe-dark tracking-tight">Create Your Account</h2>
-          <p className="mt-2 text-sm text-gray-500">
+          <h2 className="text-3xl font-black text-dark tracking-tight">Create Your Account</h2>
+          <p className="mt-2 text-sm text-gray-mid">
             Join the network that empowers the Filipino digital future.
           </p>
         </div>
@@ -42,7 +42,7 @@ const Register = () => {
 
       <div className="auth-container">
         <div className="auth-card">
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form className="form-space" onSubmit={handleSubmit}>
             {error && (
               <div className="auth-error">
                 <ShieldCheck size={18} />
@@ -66,7 +66,7 @@ const Register = () => {
                 />
               </div>
             </div>
-            
+
             <div className="auth-form-group">
               <label className="auth-label">Email Address</label>
               <div className="auth-input-wrapper">
@@ -104,7 +104,7 @@ const Register = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full btn-primary nowrap auth-btn"
+              className="btn-full btn-primary btn-height-lg nowrap"
             >
               <span>{loading ? 'Creating account...' : 'Create Account'}</span>
               {!loading && <ArrowRight size={20} />}
@@ -124,7 +124,7 @@ const Register = () => {
             <div className="mt-6">
               <Link
                 to="/login"
-                className="w-full btn-secondary nowrap auth-btn"
+                className="btn-full btn-secondary btn-height-lg nowrap"
               >
                 Sign In
               </Link>

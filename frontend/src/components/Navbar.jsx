@@ -11,17 +11,16 @@ const Navbar = () => {
         <div className="navbar-inner">
           <div className="flex items-center">
             <Link to="/" className="navbar-logo">
-              <span className="text-2xl font-black tracking-tighter text-globe-blue">Project</span>
-              <span className="text-2xl font-light text-globe-cyan navbar-logo-cyan">Telecom</span>
+              <span className="text-2xl font-black tracking-tighter text-blue">Project</span>
+              <span className="text-2xl font-light text-cyan navbar-logo-cyan">Telecom</span>
             </Link>
           </div>
 
-          {/* Desktop Menu */}
           <div className="navbar-desktop-menu">
             <Link to="/plans" className="navbar-link">Mobile & Broadband</Link>
             <Link to="/promos" className="navbar-link">Promos</Link>
             <Link to="/about" className="navbar-link">About Us</Link>
-            
+
             <div className="navbar-actions">
               <Link to="/login" className="navbar-icon-btn">
                 <User size={20} />
@@ -29,13 +28,12 @@ const Navbar = () => {
               <button className="navbar-icon-btn">
                 <ShoppingCart size={20} />
               </button>
-              <Link to="/plans" className="btn-primary navbar-btn-small">
+              <Link to="/plans" className="btn-primary btn-small">
                 Get a Plan
               </Link>
             </div>
           </div>
 
-          {/* Mobile menu button */}
           <div className="navbar-mobile-toggle">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -47,7 +45,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="navbar-mobile-menu">
           <div className="navbar-mobile-menu-inner">
