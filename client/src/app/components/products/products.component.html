@@ -1,0 +1,36 @@
+<div class="products-container">
+  <h1>Our Plans & Products</h1>
+
+  <div class="filters">
+    <button
+      *ngFor="let cat of categories"
+      [class.active]="selectedCategory === cat"
+      (click)="filterByCategory(cat)">
+      {{ cat }}
+    </button>
+  </div>
+
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let product of filteredProducts">
+      <div class="product-badge">{{ product.category }}</div>
+      <h3>{{ product.name }}</h3>
+      <p class="price">{{ product.price | currency }}<span>/mo</span></p>
+      <p class="description">{{ product.description }}</p>
+
+      <div class="specs" *ngIf="product.speed || product.dataLimit">
+        <span *ngIf="product.speed">Speed: {{ product.speed }}</span>
+        <span *ngIf="product.dataLimit">Data: {{ product.dataLimit }}</span>
+      </div>
+
+      <ul class="features">
+        <li *ngFor="let feature of product.features">{{ feature }}</li>
+      </ul>
+
+      <button class="btn btn-primary" (click)="addToCart(product)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="no-products" *ngIf="filteredProducts.length === 0">
+    <p>No products found in this category.</p>
+  </div>
+</div>

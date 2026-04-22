@@ -1,0 +1,138 @@
+.products-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.filters button {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #004a99;
+  background: white;
+  color: #004a99;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filters button.active, .filters button:hover {
+  background: #004a99;
+  color: white;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #eef4ff;
+  color: #004a99;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 1rem 0;
+}
+
+.price span {
+  font-size: 1rem;
+  color: #777;
+}
+
+.description {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.specs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #004a99;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  flex-grow: 1;
+}
+
+.features li {
+  margin-bottom: 0.5rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+}
+
+.features li::before {
+  content: "✓";
+  color: #28a745;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.btn {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.btn-primary {
+  background: #004a99;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #003366;
+}
+
+.no-products {
+  text-align: center;
+  padding: 5rem;
+  color: #999;
+}

@@ -1,0 +1,68 @@
+<div class="admin-container">
+  <div class="admin-header">
+    <h1>Admin Dashboard</h1>
+    <div class="admin-nav">
+      <a routerLink="/admin/products" class="btn btn-outline">Manage Products</a>
+      <a routerLink="/admin/promos" class="btn btn-outline">Manage Promos</a>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <h3>Total Revenue</h3>
+      <p class="stat-value">{{ stats.totalRevenue | currency }}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Orders</h3>
+      <p class="stat-value">{{ stats.orderCount }}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Products</h3>
+      <p class="stat-value">{{ stats.productCount }}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Active Promos</h3>
+      <p class="stat-value">{{ stats.promoCount }}</p>
+    </div>
+  </div>
+
+  <section class="orders-section">
+    <h2>Recent Orders</h2>
+    <div class="table-responsive">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{ order.createdAt | date:'short' }}</td>
+            <td>
+              <strong>{{ order.customerName }}</strong><br>
+              <small>{{ order.customerEmail }}</small>
+            </td>
+            <td>{{ order.totalAmount | currency }}</td>
+            <td>
+              <span class="status-badge" [class]="order.status?.toLowerCase()">
+                {{ order.status }}
+              </span>
+            </td>
+            <td>
+              <select (change)="updateStatus(order._id!, $any($event.target).value)" [value]="order.status">
+                <option value="Pending">Pending</option>
+                <option value="Shipped">Shipped</option>
+                <option value="Delivered">Delivered</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>

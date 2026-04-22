@@ -1,0 +1,91 @@
+<div class="admin-container">
+  <div class="admin-header">
+    <h1>Manage Products</h1>
+    <a routerLink="/admin" class="btn btn-link">Back to Dashboard</a>
+  </div>
+
+  <div class="admin-layout">
+    <div class="product-form-card">
+      <h2>{{ isEditing ? 'Edit Product' : 'Add New Product' }}</h2>
+      <form (submit)="saveProduct()">
+        <div class="form-group">
+          <label>Product Name</label>
+          <input type="text" [(ngModel)]="currentProduct.name" name="name" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Category</label>
+            <select [(ngModel)]="currentProduct.category" name="category" required>
+              <option value="Broadband">Broadband</option>
+              <option value="Mobile">Mobile</option>
+              <option value="TV">TV</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Price ($/mo)</label>
+            <input type="number" [(ngModel)]="currentProduct.price" name="price" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea [(ngModel)]="currentProduct.description" name="description" required></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Speed (Optional)</label>
+            <input type="text" [(ngModel)]="currentProduct.speed" name="speed">
+          </div>
+          <div class="form-group">
+            <label>Data Limit (Optional)</label>
+            <input type="text" [(ngModel)]="currentProduct.dataLimit" name="dataLimit">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Image URL</label>
+          <input type="text" [(ngModel)]="currentProduct.imageUrl" name="imageUrl">
+        </div>
+
+        <div class="features-management">
+          <label>Features</label>
+          <div class="feature-input" *ngFor="let feature of currentProduct.features; let i = index; trackBy:trackByFn">
+            <input type="text" [(ngModel)]="currentProduct.features![i]" [name]="'feature' + i">
+            <button type="button" class="btn-icon delete" (click)="removeFeature(i)">&times;</button>
+          </div>
+          <button type="button" class="btn btn-outline small" (click)="addFeature()">+ Add Feature</button>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">{{ isEditing ? 'Update' : 'Create' }} Product</button>
+          <button type="button" class="btn btn-link" *ngIf="isEditing" (click)="resetForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="product-list-card">
+      <h2>Existing Products</h2>
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+              <td>{{ product.name }}</td>
+              <td>{{ product.category }}</td>
+              <td>{{ product.price | currency }}</td>
+              <td class="actions">
+                <button class="btn-icon edit" (click)="editProduct(product)">✎</button>
+                <button class="btn-icon delete" (click)="deleteProduct(product._id!)">🗑</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

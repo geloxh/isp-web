@@ -1,0 +1,37 @@
+<div class="home-container">
+  <section class="hero">
+    <h1>Welcome to Telco ISP</h1>
+    <p>Fast, Reliable, and Affordable Internet Solutions</p>
+    <a routerLink="/products" class="btn btn-primary">View Plans</a>
+  </section>
+
+  <section class="promos-section" *ngIf="featuredPromos.length > 0">
+    <h2>Active Promos</h2>
+    <div class="promos-grid">
+      <div class="promo-card" *ngFor="let promo of featuredPromos">
+        <img [src]="promo.imageUrl || 'https://via.placeholder.com/300x150'" alt="Promo">
+        <div class="promo-content">
+          <h3>{{ promo.title }}</h3>
+          <p>{{ promo.description }}</p>
+          <p class="promo-code" *ngIf="promo.discountCode">Code: <strong>{{ promo.discountCode }}</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section">
+    <h2>Our Popular Plans</h2>
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let product of featuredProducts">
+        <div class="product-badge">{{ product.category }}</div>
+        <h3>{{ product.name }}</h3>
+        <p class="price">{{ product.price | currency }}<span>/mo</span></p>
+        <p>{{ product.description }}</p>
+        <ul class="features">
+          <li *ngFor="let feature of product.features">{{ feature }}</li>
+        </ul>
+        <a routerLink="/products" class="btn btn-outline">Learn More</a>
+      </div>
+    </div>
+  </section>
+</div>

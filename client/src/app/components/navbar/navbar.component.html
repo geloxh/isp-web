@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a routerLink="/">Telco ISP</a>
+  </div>
+  <ul class="navbar-links">
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+    <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
+    <li><a routerLink="/promos" routerLinkActive="active">Promos</a></li>
+    <li><a routerLink="/admin" routerLinkActive="active">Admin</a></li>
+    <li>
+      <a routerLink="/cart" class="cart-link">
+        Cart <span class="cart-badge" *ngIf="cartCount$ | async as items">{{ getCartItemsCount(items) }}</span>
+      </a>
+    </li>
+  </ul>
+</nav>

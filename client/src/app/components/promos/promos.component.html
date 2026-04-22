@@ -1,0 +1,33 @@
+<div class="promos-container">
+  <h1>Exclusive Promotions</h1>
+  <p class="subtitle">Grab the best deals before they expire!</p>
+
+  <div class="promos-grid">
+    <div class="promo-card" *ngFor="let promo of promos">
+      <div class="promo-image">
+        <img [src]="promo.imageUrl || 'https://via.placeholder.com/400x200'" alt="Promo">
+        <div class="discount-badge" *ngIf="promo.discountPercentage">
+          {{ promo.discountPercentage }}% OFF
+        </div>
+      </div>
+      <div class="promo-content">
+        <h3>{{ promo.title }}</h3>
+        <p class="description">{{ promo.description }}</p>
+
+        <div class="promo-footer">
+          <div class="promo-code-box" *ngIf="promo.discountCode">
+            <span class="code">{{ promo.discountCode }}</span>
+            <button (click)="copyCode(promo.discountCode)">Copy</button>
+          </div>
+          <p class="expiry" *ngIf="promo.expiryDate">
+            Expires: {{ promo.expiryDate | date:'mediumDate' }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="no-promos" *ngIf="promos.length === 0">
+    <p>Check back later for new promotions!</p>
+  </div>
+</div>
