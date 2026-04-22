@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const orderController = require('../controllers/orderController');
-const protect = require('../middleware/auth.middleware');
+const validate = require('../middleware/validate');
+const { createOrderRules, updateOrderStatusRules } = require('../middleware/validators/orderValidator');
 
-router.get('/', protect, orderController.getAllOrders);
-router.post('/', orderController.createOrder);
-router.put('/:id/status', protect, orderController.updateOrderStatus);
+router.get('/', orderController.getAllOrders);
+router.post('/', createOrderRules, validate, orderController.createOrder);
+router.put('/:id/status', updateOrderStatusRules, validate, orderController.updateOrderStatus);
 
 module.exports = router;
