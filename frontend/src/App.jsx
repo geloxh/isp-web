@@ -8,14 +8,14 @@ import Promos from './pages/Promos';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
-const About = () => <div className="placeholder-page">About Coming Soon</div>;
+const About = () => <div className="min-h-screen flex items-center justify-center font-bold pt-20 text-3xl">About Coming Soon</div>;
 
 function App() {
   return (
     <Router>
-      <div className="page-wrapper">
+      <div className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="main-content">
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/plans" element={<Plans />} />
